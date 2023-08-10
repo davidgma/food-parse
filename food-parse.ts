@@ -1,4 +1,5 @@
 import fs from 'fs';
+import clipboard from 'clipboardy';
 
 // Mapping file
 let mappings = new Map<string, string>();
@@ -76,10 +77,14 @@ for (let line of lines) {
     }
 }
 
+// Write to a file
 try {
     fs.writeFileSync('foods.txt', output.join("\n"));
     // file written successfully
 } catch (err) {
     console.error(err);
 }
+
+// Write to the clipboard
+clipboard.writeSync(output.join("\n"));
 

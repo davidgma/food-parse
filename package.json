@@ -2,5 +2,9 @@
   "devDependencies": {
     "@types/node": "^20.4.9",
     "typescript": "^5.1.6"
-  }
+  },
+  "dependencies": {
+    "clipboardy": "^3.0.0"
+  },
+  "type": "module"
 }

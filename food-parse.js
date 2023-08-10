@@ -1,9 +1,5 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const fs_1 = __importDefault(require("fs"));
+import fs from 'fs';
+import clipboard from 'clipboardy';
 // Mapping file
 let mappings = new Map();
 mappings.set("Coffee, Prepared From Grounds", "Coffee");
@@ -28,13 +24,13 @@ mappings.set("", "");
 mappings.set("", "");
 // get the most recent servings file
 const folderPath = '/home/david/Downloads';
-let files = fs_1.default.readdirSync(folderPath);
+let files = fs.readdirSync(folderPath);
 let mostRecentFile = "";
 let mostRecentTime;
 for (let file of files) {
     let filePath = folderPath + "/" + file;
     if (file.startsWith("servings") && file.endsWith(".csv")) {
-        let stats = fs_1.default.statSync(filePath);
+        let stats = fs.statSync(filePath);
         let modified = new Date(stats.mtime);
         if (mostRecentTime == undefined || mostRecentTime < modified) {
             mostRecentFile = filePath;
@@ -45,7 +41,7 @@ for (let file of files) {
 }
 console.log("most recent: " + mostRecentFile);
 // read the contents
-const contents = fs_1.default.readFileSync(mostRecentFile, 'utf-8');
+const contents = fs.readFileSync(mostRecentFile, 'utf-8');
 const lines = contents.split(/\r?\n/);
 let output = new Array();
 for (let line of lines) {
@@ -70,10 +66,13 @@ for (let line of lines) {
         }
     }
 }
+// Write to a file
 try {
-    fs_1.default.writeFileSync('foods.txt', output.join("\n"));
+    fs.writeFileSync('foods.txt', output.join("\n"));
     // file written successfully
 }
 catch (err) {
     console.error(err);
 }
+// Write to the clipboard
+clipboard.writeSync(output.join("\n"));
