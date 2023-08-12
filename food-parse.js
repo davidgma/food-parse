@@ -20,11 +20,11 @@ mappings.set("Peanut Butter, Chunk Style, with Salt", "Peanut butter");
 mappings.set("Blackberries, Fresh", "Blackberries");
 mappings.set("Salmon, Atlantic, Farmed", "Salmon");
 mappings.set("Peanuts, Dry Roasted, Unsalted", "Peanuts");
-mappings.set("", "");
-mappings.set("", "");
-mappings.set("", "");
-mappings.set("", "");
-mappings.set("", "");
+mappings.set("Whole Wheat Bread, Homemade or Bakery", "Wholemeal bread");
+mappings.set("Mixed Nuts, with Peanuts, Dry Roasted, Salted", "Nuts");
+mappings.set("Sainsbury's, Sumac", "Sumac");
+mappings.set("Fish, Salmon, Atlantic, Farmed", "Salmon");
+mappings.set("Lamb, Australian, ground,  85% lean / 15% fat", "Lamb");
 mappings.set("", "");
 mappings.set("", "");
 mappings.set("", "");
@@ -80,6 +80,10 @@ for (let line of lines) {
         // Remove ", Raw" from end if necessary
         if (foodName.endsWith(", Raw")) {
             foodName = foodName.replace(", Raw", "");
+        }
+        // Remove ", raw" from end if necessary
+        if (foodName.endsWith(", raw")) {
+            foodName = foodName.replace(", raw", "");
         }
         // Remove ", Cooked" from end if necessary
         if (foodName.endsWith(", Cooked")) {
