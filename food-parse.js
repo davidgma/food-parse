@@ -16,6 +16,34 @@ mappings.set("Yogurt, Plain, Whole Milk", "Yogurt");
 mappings.set("Duck, Goose or Wild Fowl Fat", "Duck fat");
 mappings.set("Cream, fluid, heavy whipping, organic", "Cream");
 mappings.set("Pork, Ground, 96% Lean, 4% Fat, Raw", "Minced pork");
+mappings.set("Peanut Butter, Chunk Style, with Salt", "Peanut butter");
+mappings.set("Blackberries, Fresh", "Blackberries");
+mappings.set("Salmon, Atlantic, Farmed", "Salmon");
+mappings.set("Peanuts, Dry Roasted, Unsalted", "Peanuts");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
 mappings.set("", "");
 mappings.set("", "");
 mappings.set("", "");
@@ -49,6 +77,19 @@ for (let line of lines) {
     let matches = line.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g);
     if (matches != null) {
         let foodName = matches[3].replaceAll('"', '');
+        // Remove ", Raw" from end if necessary
+        if (foodName.endsWith(", Raw")) {
+            foodName = foodName.replace(", Raw", "");
+        }
+        // Remove ", Cooked" from end if necessary
+        if (foodName.endsWith(", Cooked")) {
+            foodName = foodName.replace(", Cooked", "");
+        }
+        // Remove ", Dried" from end if necessary
+        if (foodName.endsWith(", Dried")) {
+            foodName = foodName.replace(", Dried", "");
+        }
+        // Replace food name with mapped version if in mappings
         if (mappings.has(foodName)) {
             if (mappings.get(foodName) !== undefined) {
                 foodName = mappings.get(foodName);
