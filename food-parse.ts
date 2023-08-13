@@ -26,6 +26,11 @@ mappings.set("Mixed Nuts, with Peanuts, Dry Roasted, Salted", "Nuts");
 mappings.set("Sainsbury's, Sumac", "Sumac");
 mappings.set("Fish, Salmon, Atlantic, Farmed", "Salmon");
 mappings.set("Lamb, Australian, ground,  85% lean / 15% fat", "Lamb");
+mappings.set("Mixed Nuts, without Peanuts, Salted", "Mixed Nuts");
+mappings.set("Pork, Ground, 96% Lean, 4% Fat", "Pork mince");
+mappings.set("Lentils, Pink or Red", "Red lentils");
+mappings.set("Raspberries, Fresh, Red", "Raspberries");
+mappings.set("Mixed Nuts, with Peanuts, Oil Roasted, Salted", "Mixed Nuts");
 mappings.set("", "");
 mappings.set("", "");
 mappings.set("", "");
@@ -46,11 +51,13 @@ mappings.set("", "");
 mappings.set("", "");
 mappings.set("", "");
 mappings.set("", "");
-mappings.set("", "");
-mappings.set("", "");
-mappings.set("", "");
-mappings.set("", "");
-mappings.set("", "");
+
+let endings = new Array<string>();
+endings.push(", Raw");
+endings.push(", raw");
+endings.push(", Cooked");
+endings.push(", Dried");
+endings.push(", Fresh");
 
 // get the most recent servings file
 const folderPath = '/home/david/Downloads';
@@ -87,31 +94,21 @@ for (let line of lines) {
     let matches = line.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g);
     if (matches != null) {
         let foodName = matches[3].replaceAll('"', '');
-        // Remove ", Raw" from end if necessary
-        if (foodName.endsWith(", Raw")) {
-            foodName = foodName.replace(", Raw", "");
-        }
-        // Remove ", raw" from end if necessary
-        if (foodName.endsWith(", raw")) {
-            foodName = foodName.replace(", raw", "");
-        }
-        // Remove ", Cooked" from end if necessary
-        if (foodName.endsWith(", Cooked")) {
-            foodName = foodName.replace(", Cooked", "");
-        }
-        // Remove ", Dried" from end if necessary
-        if (foodName.endsWith(", Dried")) {
-            foodName = foodName.replace(", Dried", "");
-        }
+        // Remove unwanted ends if necessary
+        foodName = removeEnd(foodName);
+
         // Replace food name with mapped version if in mappings
         if (mappings.has(foodName)) {
             if (mappings.get(foodName) !== undefined) {
                 foodName = <string>mappings.get(foodName);
             }
         }
+
+        let weight = fixWeight(matches[4]);
+
         let foods = foodName
             + " ("
-            + matches[4].replaceAll(' ', '').replaceAll('"', '')
+            + weight
             + " "
             + matches[1].replaceAll('"', '')
             + ")"
@@ -132,4 +129,32 @@ try {
 
 // Write to the clipboard
 clipboard.writeSync(output.join("\n"));
+
+function removeEnd(foodName: string): string {
+    for (let ending of endings) {
+        if (foodName.endsWith(ending)) {
+            return foodName.replace(ending, "");
+        }
+    }
+
+    return foodName;
+
+}
+
+function fixWeight(weight: string): string {
+    // don't do anything if it isn't a gram weight
+    if (! weight.endsWith(' g"')) {
+        return weight;
+    }
+
+    // get number
+    let numberText = weight.match(/\d+\.\d+/);
+    if (numberText !== null) {
+        return Number.parseFloat(numberText[0]).toString() + "g";
+    } 
+    else {
+        return weight;
+    }
+
+}
 
