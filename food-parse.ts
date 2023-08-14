@@ -31,8 +31,8 @@ mappings.set("Pork, Ground, 96% Lean, 4% Fat", "Pork mince");
 mappings.set("Lentils, Pink or Red", "Red lentils");
 mappings.set("Raspberries, Fresh, Red", "Raspberries");
 mappings.set("Mixed Nuts, with Peanuts, Oil Roasted, Salted", "Mixed Nuts");
-mappings.set("", "");
-mappings.set("", "");
+mappings.set("Fat, Duck", "Duck fat");
+mappings.set("Cabbage, Red", "Red cabbage");
 mappings.set("", "");
 mappings.set("", "");
 mappings.set("", "");
@@ -53,11 +53,19 @@ mappings.set("", "");
 mappings.set("", "");
 
 let endings = new Array<string>();
+endings.push(", ground, raw");
 endings.push(", Raw");
 endings.push(", raw");
 endings.push(", Cooked");
 endings.push(", Dried");
 endings.push(", Fresh");
+endings.push(", Ground");
+endings.push(", ground");
+// endings.push();
+// endings.push();
+// endings.push();
+// endings.push();
+// endings.push();
 
 // get the most recent servings file
 const folderPath = '/home/david/Downloads';
