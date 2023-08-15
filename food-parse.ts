@@ -34,8 +34,8 @@ mappings.set("Mixed Nuts, with Peanuts, Oil Roasted, Salted", "Mixed Nuts");
 mappings.set("Fat, Duck", "Duck fat");
 mappings.set("Cabbage, Red", "Red cabbage");
 mappings.set("Zucchini", "Courgette");
-mappings.set("", "");
-mappings.set("", "");
+mappings.set("Chicken, roasting, light meat, meat only, cooked, roasted", "Chicken");
+mappings.set("Arugula", "Rocket");
 mappings.set("", "");
 mappings.set("", "");
 mappings.set("", "");
@@ -54,13 +54,13 @@ mappings.set("", "");
 
 let endings = new Array<string>();
 endings.push(", ground, raw");
-endings.push(", Raw");
+endings.push(", fresh, raw");
 endings.push(", raw");
-endings.push(", Cooked");
-endings.push(", Dried");
-endings.push(", Fresh");
-endings.push(", Ground");
+endings.push(", cooked");
+endings.push(", dried");
+endings.push(", fresh");
 endings.push(", ground");
+endings.push(", not fortified");
 // endings.push();
 // endings.push();
 // endings.push();
@@ -140,8 +140,8 @@ clipboard.writeSync(output.join("\n"));
 
 function removeEnd(foodName: string): string {
     for (let ending of endings) {
-        if (foodName.endsWith(ending)) {
-            return foodName.replace(ending, "");
+        if (foodName.toLowerCase().endsWith(ending.toLowerCase())) {
+            return foodName.substring(0, foodName.length - ending.length);
         }
     }
 
