@@ -33,7 +33,7 @@ mappings.set("Raspberries, Fresh, Red", "Raspberries");
 mappings.set("Mixed Nuts, with Peanuts, Oil Roasted, Salted", "Mixed Nuts");
 mappings.set("Fat, Duck", "Duck fat");
 mappings.set("Cabbage, Red", "Red cabbage");
-mappings.set("", "");
+mappings.set("Zucchini", "Courgette");
 mappings.set("", "");
 mappings.set("", "");
 mappings.set("", "");
