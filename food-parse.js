@@ -64,6 +64,9 @@ endings.push(", not fortified");
 // endings.push();
 // endings.push();
 // endings.push();
+// read in the times.json file
+let times = JSON.parse(fs.readFileSync("./times.json", 'utf-8'));
+console.log(times);
 // get the most recent servings file
 const folderPath = '/home/david/Downloads';
 let files = fs.readdirSync(folderPath);
@@ -90,6 +93,8 @@ for (let line of lines) {
     // https://stackoverflow.com/questions/11456850/split-a-string-by-commas-but-ignore-commas-within-double-quotes-using-javascript
     let matches = line.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g);
     if (matches != null) {
+        // Set the name of the food
+        // ************************
         let foodName = matches[3].replaceAll('"', '');
         // Remove unwanted ends if necessary
         foodName = removeEnd(foodName);
@@ -99,12 +104,28 @@ for (let line of lines) {
                 foodName = mappings.get(foodName);
             }
         }
+        // Set the weight
+        // ************************
         let weight = fixWeight(matches[4]);
+        // Set the time eaten (from the times.json)
+        // ************************
+        // Default time (probably won't use this though)
+        let time = matches[1].replaceAll('"', '');
+        // Get other times based on group name
+        let group = matches[2].replaceAll('"', '');
+        time = times.Eaten[group];
+        // Set specific times
+        if (foodName.startsWith("Coffee")) {
+            time = times.Eaten.Coffee;
+        }
+        if (foodName.startsWith("Jasmine Tea")) {
+            time = times.Eaten.Tea;
+        }
         let foods = foodName
             + " ("
             + weight
             + " "
-            + matches[1].replaceAll('"', '')
+            + time
             + ")";
         console.log(foods);
         if (!foods.startsWith("Name")) {
