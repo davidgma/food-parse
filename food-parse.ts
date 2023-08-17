@@ -1,6 +1,33 @@
 import fs from 'fs';
 import clipboard from 'clipboardy';
 
+class FoodEaten {
+
+    constructor(public name: string, public weight: string, public time: string) {
+
+    }
+
+    toString() {
+        return this.name + " (" + this.weight + " " + this.time + ")";
+    }
+}
+
+function foodSort(food1: FoodEaten, food2: FoodEaten) {
+    if (food1.time > food2.time) {
+        return 1;
+    }
+    if (food1.time < food2.time) {
+        return -1;
+    }
+    if (food1.name > food2.name) {
+        return 1
+    }
+    if (food1.name < food2.name) {
+        return -1;
+    }
+    return 0;
+}
+
 // Mapping file
 let mappings = new Map<string, string>();
 mappings.set("Coffee, Prepared From Grounds", "Coffee");
@@ -101,6 +128,7 @@ console.log("most recent: " + mostRecentFile);
 const contents = fs.readFileSync(mostRecentFile, 'utf-8');
 const lines = contents.split(/\r?\n/);
 let output = new Array<string>();
+let foods = new Array<FoodEaten>();
 
 for (let line of lines) {
     // https://stackoverflow.com/questions/11456850/split-a-string-by-commas-but-ignore-commas-within-double-quotes-using-javascript
@@ -142,18 +170,18 @@ for (let line of lines) {
             time = times.Eaten.Tea;
         }
 
-
-        let foods = foodName
-            + " ("
-            + weight
-            + " "
-            + time
-            + ")"
-        console.log(foods);
-        if (!foods.startsWith("Name")) {
-            output.push(foods);
+        if (!foodName.startsWith("Name")) {
+            let food = new FoodEaten(foodName, weight, time);
+            foods.push(food);
         }
     }
+    
+}
+
+foods.sort(foodSort);
+for (let food of foods) {
+    console.log(food.toString());
+    output.push(food.toString());
 }
 
 // Write to a file
@@ -194,4 +222,6 @@ function fixWeight(weight: string): string {
     }
 
 }
+
+
 
