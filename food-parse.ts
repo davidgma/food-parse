@@ -67,7 +67,7 @@ mappings.set("Arugula", "Rocket");
 mappings.set("Tomato Raw, Includes Cherry, Grape, Roma", "Tomatoes");
 mappings.set("Onion, White, Yellow or Red", "Onion");
 mappings.set("Brie Cheese", "Brie");
-mappings.set("", "");
+mappings.set("Spearmint", "Mint");
 mappings.set("", "");
 mappings.set("", "");
 mappings.set("", "");
