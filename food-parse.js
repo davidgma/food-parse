@@ -11,6 +11,7 @@ class FoodEaten {
     }
     toString() {
         return this.name + " (" + this.weight + " " + this.time + ")";
+        // return this.name;
     }
 }
 function foodSort(food1, food2) {

@@ -9,6 +9,7 @@ class FoodEaten {
 
     toString() {
         return this.name + " (" + this.weight + " " + this.time + ")";
+        // return this.name;
     }
 }
 
