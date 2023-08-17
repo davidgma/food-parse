@@ -1,51 +1,51 @@
-Coffee
-Apple
-Banana
-Black Olives
-Black Pepper
-Brie Cheese
-Butter
-Curry Powder
-Egg
-Ground bones
-Mixed Nuts
-Mixed herbs
-Rocket
-Salt
-Yogurt
-Jasmine Tea
-Black Pepper
-Blackberries
-Broccoli
-Courgette
-Cream
-Curry Powder
-Green Beans
-Mixed Nuts
-Mushrooms
-Olive Oil
-Paprika
-Red Bell Peppers
-Salmon
-Salt
-Spearmint
-Yogurt
-Black Pepper
-Celery
-Cinnamon
-Cream
-Curry Powder
-Duck fat
-Garlic
-Ginger Root
-Lemon Juice
-Mixed Nuts
-Onion
-Pork mince
-Radish
-Raspberries
-Red lentils
-Salt
-Tomatoes
-Turmeric
-Yogurt
+Coffee (600g 07:40)
+Apple (100g 11:00)
+Banana (100g 11:00)
+Black Olives (10g 11:00)
+Black Pepper (0.2g 11:00)
+Brie Cheese (50g 11:00)
+Butter (14g 11:00)
+Curry Powder (1g 11:00)
+Egg (106g 11:00)
+Ground bones (2g 11:00)
+Mixed Nuts (20g 11:00)
+Mixed herbs (0.2g 11:00)
+Rocket (32g 11:00)
+Salt (4g 11:00)
+Yogurt (61g 11:00)
+Jasmine Tea (600g 14:30)
+Black Pepper (0.2g 15:00)
+Blackberries (114g 15:00)
+Broccoli (35g 15:00)
+Courgette (69g 15:00)
+Cream (21g 15:00)
+Curry Powder (1g 15:00)
+Green Beans (35g 15:00)
+Mixed Nuts (20g 15:00)
+Mushrooms (29g 15:00)
+Olive Oil (25g 15:00)
+Paprika (0.5g 15:00)
+Red Bell Peppers (33g 15:00)
+Salmon (122g 15:00)
+Salt (4g 15:00)
+Spearmint (0.2g 15:00)
+Yogurt (61g 15:00)
+Black Pepper (0.2g 21:00)
+Celery (62g 21:00)
+Cinnamon (0.5g 21:00)
+Cream (25g 21:00)
+Curry Powder (0.5g 21:00)
+Duck fat (26g 21:00)
+Garlic (5g 21:00)
+Ginger Root (4g 21:00)
+Lemon Juice (6g 21:00)
+Mixed Nuts (20g 21:00)
+Onion (88g 21:00)
+Pork mince (51g 21:00)
+Radish (22g 21:00)
+Raspberries (150g 21:00)
+Red lentils (24g 21:00)
+Salt (4g 21:00)
+Tomatoes (65g 21:00)
+Turmeric (0.5g 21:00)
+Yogurt (65g 21:00)
