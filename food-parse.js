@@ -71,8 +71,8 @@ mappings.set("Spearmint", "Mint");
 mappings.set("Potatoes, White, Flesh and Skin", "Potatoes");
 mappings.set("Oil, coconut, organic", "Coconut oil");
 mappings.set("Red Bell Peppers", "Red peppers");
-mappings.set("", "");
-mappings.set("", "");
+mappings.set("Red Wine, Other Types", "Red wine");
+mappings.set("Whiskey", "Whisky");
 mappings.set("", "");
 mappings.set("", "");
 mappings.set("", "");
@@ -160,7 +160,8 @@ for (let line of lines) {
         if (foodName.startsWith("Jasmine Tea")) {
             time = times.Eaten.Tea;
         }
-        if (!foodName.startsWith("Name")) {
+        // Add the food to the array of foods
+        if (!foodName.startsWith("Name") && weight !== "0g") {
             let food = new FoodEaten(foodName, weight, time);
             foods.push(food);
         }
