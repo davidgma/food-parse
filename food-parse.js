@@ -4,13 +4,15 @@ class FoodEaten {
     name;
     weight;
     time;
-    constructor(name, weight, time) {
+    fermented;
+    constructor(name, weight, time, fermented) {
         this.name = name;
         this.weight = weight;
         this.time = time;
+        this.fermented = fermented;
     }
     toString() {
-        return this.name + " (" + this.weight + " " + this.time + ")";
+        return this.name + " (" + this.fermented + this.weight + " " + this.time + ")";
         // return this.name;
     }
 }
@@ -143,6 +145,12 @@ for (let line of lines) {
                 foodName = mappings.get(foodName);
             }
         }
+        // Check whether the food was listed in times.json as fermented
+        let fermented = "";
+        let fermentedFoods = times.Fermented;
+        if (fermentedFoods.includes(foodName)) {
+            fermented = "F ";
+        }
         // Set the weight
         // ************************
         let weight = fixWeight(matches[4]);
@@ -162,7 +170,7 @@ for (let line of lines) {
         }
         // Add the food to the array of foods
         if (!foodName.startsWith("Name") && weight !== "0g") {
-            let food = new FoodEaten(foodName, weight, time);
+            let food = new FoodEaten(foodName, weight, time, fermented);
             foods.push(food);
         }
     }
