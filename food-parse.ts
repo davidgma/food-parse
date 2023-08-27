@@ -76,7 +76,7 @@ mappings.set("Whiskey", "Whisky");
 mappings.set("Oatmeal, Regular or Quick, Dry", "Oats");
 mappings.set("Rutabaga", "Swede");
 mappings.set("Lamb Roast, Leg, No Visible Fat Eaten", "Lamb");
-mappings.set("", "");
+mappings.set("Chicken Breast, Skin Removed Before Cooking", "Chicken");
 mappings.set("", "");
 mappings.set("", "");
 mappings.set("", "");
