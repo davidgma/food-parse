@@ -93,12 +93,14 @@ mappings.set("", "");
 let endings = new Array();
 endings.push(", ground, raw");
 endings.push(", fresh, raw");
+endings.push(", dried, ground");
 endings.push(", raw");
 endings.push(", cooked");
 endings.push(", dried");
 endings.push(", fresh");
 endings.push(", ground");
 endings.push(", not fortified");
+endings.push(", dry");
 // endings.push();
 // endings.push();
 // endings.push();
@@ -193,6 +195,7 @@ clipboard.writeSync(output.join("\n"));
 function removeEnd(foodName) {
     for (let ending of endings) {
         if (foodName.toLowerCase().endsWith(ending.toLowerCase())) {
+            // console.log(foodName);
             return foodName.substring(0, foodName.length - ending.length);
         }
     }
