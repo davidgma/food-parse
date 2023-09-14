@@ -84,7 +84,7 @@ mappings.set("Peas, Green, Split, Mature Seeds", "Split peas");
 mappings.set("Nuts, Pine Nuts", "Pine nuts");
 mappings.set("Chickpeas, Garbanzo Beans, Bengal Gram, Mature Seeds", "Chickpeas");
 mappings.set("Beans, Black, Mature Seeds", "Black beans");
-mappings.set("", "");
+mappings.set("Spinach, Frozen, Chopped or Leaf, Unprepared", "Spinach");
 mappings.set("", "");
 mappings.set("", "");
 mappings.set("", "");

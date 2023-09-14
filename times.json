@@ -1,5 +1,5 @@
 {"Eaten": {
-    "Breakfast": "12:20", "Lunch": "15:50", "Dinner":"00:00", "Coffee": "08:20", "Tea": "14:00", 
+    "Breakfast": "13:00", "Lunch": "17:00", "Dinner":"00:00", "Coffee": "11:50", "Tea": "15:20", 
     "Other1": "00:00", "Other2": "00:00", "Other3": "00:00"
     },
 "Fermented": ["Yogurt"]
