@@ -115,7 +115,7 @@ mappings.set("Brazil Nuts, Unsalted", "Brazil nuts");
 mappings.set("Oats, Regular or Quick", "Oats");
 mappings.set("Chicken Breast, Skinless", "Chicken");
 mappings.set("Le Bio par Picard Cocktail de Fruits Rouges", "Berries");
-mappings.set("", "");
+mappings.set("M&amp;S Frozen Mixed Vegetables", "M&S frozen vegetables");
 mappings.set("", "");
 mappings.set("", "");
 mappings.set("", "");
@@ -205,6 +205,11 @@ for (let tableRow of tableRows) {
         const divName = dataItems[2].querySelector("div");
         if (divName !== null) {
             let foodName = divName.innerHTML.replace("\n", "").replace(/\s+/g, " ").trim();
+
+            // if (foodName.includes("Frozen")) {
+            //     console.log(foodName);
+                
+            // }
 
             // Update the food name
             if (row.type === "food") {
