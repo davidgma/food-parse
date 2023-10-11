@@ -131,6 +131,9 @@ mappings.set("", "");
 mappings.set("", "");
 mappings.set("", "");
 mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
 
 let endings = new Array<string>();
 endings.push(", ground, raw");
@@ -318,6 +321,9 @@ for (let row of cronData) {
         }
         if (row.name.startsWith("Jasmine Tea")) {
             time = times.Eaten.Tea;
+        }
+        if (row.name.startsWith("Chamomile Tea")) {
+            time = times.Eaten.Chamomile;
         }
 
 

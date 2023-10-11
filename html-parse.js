@@ -142,6 +142,9 @@ mappings.set("", "");
 mappings.set("", "");
 mappings.set("", "");
 mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
 let endings = new Array();
 endings.push(", ground, raw");
 endings.push(", fresh, raw");
@@ -295,6 +298,9 @@ for (let row of cronData) {
         }
         if (row.name.startsWith("Jasmine Tea")) {
             time = times.Eaten.Tea;
+        }
+        if (row.name.startsWith("Chamomile Tea")) {
+            time = times.Eaten.Chamomile;
         }
         let food = new FoodEaten(row.name, row.value + row.unit, time, fermented);
         foods.push(food);
