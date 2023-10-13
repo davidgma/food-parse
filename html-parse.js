@@ -134,7 +134,7 @@ mappings.set("M&amp;S Organic Full Fat Soft Cheese", "Cream cheese");
 mappings.set("Potatoes, Pan Fried", "Chips");
 mappings.set("Bread, Whole Wheat, Commercially Prepared", "Wholemeal bread");
 mappings.set("Pork Pie, Melton Mowbray, M&amp;S", "Pork pie");
-mappings.set("", "");
+mappings.set("Coconut, Dried, Not Sweetened", "Coconut");
 mappings.set("", "");
 mappings.set("", "");
 mappings.set("", "");
