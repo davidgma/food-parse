@@ -283,7 +283,7 @@ let foods = new Array<FoodEaten>();
 for (let row of cronData) {
 
     // Add up the total weight eaten
-    if (row.type === "food" && row.name !== "Coffee" && row.name !== "Jasmine Tea") {
+    if (row.type === "food" && row.name !== "Coffee" && row.name !== "Jasmine Tea" && row.name !== "Chamomile Tea") {
         totalGEaten += row.value;
     }
 
