@@ -128,7 +128,7 @@ mappings.set("Oyster, Pacific", "Oyster");
 mappings.set("Kefir, 3.5% Fat", "Kefir");
 mappings.set("Pork Tenderloin, Lean Only, Roasted", "Pork");
 mappings.set("Potatoes, Roasted, Includes Franconia", "Potato");
-mappings.set("", "");
+mappings.set("Sunflower Seeds, Dry Roasted, Unsalted", "Sunflower seeds");
 mappings.set("", "");
 mappings.set("", "");
 mappings.set("", "");
