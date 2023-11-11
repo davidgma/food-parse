@@ -133,7 +133,7 @@ mappings.set("Seaweed, Spirulina", "Seaweed");
 mappings.set("Milk, Whole", "Milk");
 mappings.set("Mixed Nuts, without Peanuts, Unsalted", "Mixed Nuts");
 mappings.set("Tomato, Red", "Tomato");
-mappings.set("", "");
+mappings.set("Kombucha tea", "Kombucha");
 mappings.set("", "");
 mappings.set("", "");
 mappings.set("", "");
@@ -307,7 +307,11 @@ let foods = new Array<FoodEaten>();
 for (let row of cronData) {
 
     // Add up the total weight eaten
-    if (row.type === "food" && row.name !== "Coffee" && row.name !== "Jasmine Tea" && row.name !== "Chamomile Tea") {
+    if (row.type === "food" && row.name !== "Coffee" 
+    && row.name !== "Jasmine Tea" 
+    && row.name !== "Chamomile Tea"
+    && row.name !== "Kombucha"
+    ) {
         totalGEaten += row.value;
     }
 
@@ -348,6 +352,9 @@ for (let row of cronData) {
         }
         if (row.name.startsWith("Chamomile Tea")) {
             time = times.Eaten.Chamomile;
+        }
+        if (row.name.startsWith("Kombucha")) {
+            time = times.Eaten.Kombucha;
         }
 
 
