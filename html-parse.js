@@ -145,7 +145,7 @@ mappings.set("Milk, Whole", "Milk");
 mappings.set("Mixed Nuts, without Peanuts, Unsalted", "Mixed Nuts");
 mappings.set("Tomato, Red", "Tomato");
 mappings.set("Kombucha tea", "Kombucha");
-mappings.set("", "");
+mappings.set("Fat, mutton tallow", "Lamb fat");
 mappings.set("", "");
 mappings.set("", "");
 mappings.set("", "");
