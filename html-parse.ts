@@ -281,7 +281,15 @@ for (let tableRow of tableRows) {
         // Put in the latest meal
         row.meal = latestMeal;
 
-        cronData.push(row);
+
+        // Add to array if not 0 quantity
+        if (!(row.value === 0 && row.type === "food")) {
+            // console.log("zero row: " + JSON.stringify(row));
+            cronData.push(row);
+            
+        }
+        
+
     }
 
 }
