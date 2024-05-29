@@ -1,6 +1,7 @@
 import fs from 'fs';
 import clipboard from 'clipboardy';
 import { JSDOM } from 'jsdom';
+const useTimesFromNotes = false;
 class FoodEaten {
     name;
     weight;
@@ -146,10 +147,10 @@ mappings.set("Mixed Nuts, without Peanuts, Unsalted", "Mixed Nuts");
 mappings.set("Tomato, Red", "Tomato");
 mappings.set("Kombucha tea", "Kombucha");
 mappings.set("Fat, mutton tallow", "Lamb fat");
-mappings.set("", "");
-mappings.set("", "");
-mappings.set("", "");
-mappings.set("", "");
+mappings.set("Squash, Winter, Butternut, Cooked without Salt", "Butternut squash");
+mappings.set("Potato, Flesh", "Potato");
+mappings.set("Currants, Fresh, Black", "Currants");
+mappings.set("Eden, Seaweed, Kombu, Wild", "Kombu");
 mappings.set("", "");
 mappings.set("", "");
 mappings.set("", "");
@@ -204,6 +205,7 @@ for (let tableRow of tableRows) {
     }
     // Check that it's a line we want: does it have a diary time
     if (dataItems[0].classList.contains("diary-time")) {
+        // console.log("here");
         // Get time
         const divTime = dataItems[0].querySelector("div");
         if (divTime !== null) {
@@ -318,22 +320,24 @@ for (let row of cronData) {
             fermented = "F ";
         }
         // Get the time actually eaten
-        // Default time (probably won't use this though)
+        // Time from cronometer
         let time = row.time;
-        // Get other times based on group name
-        time = times.Eaten[row.meal];
-        // Set specific times
-        if (row.name.startsWith("Coffee")) {
-            time = times.Eaten.Coffee;
-        }
-        if (row.name.startsWith("Jasmine Tea")) {
-            time = times.Eaten.Tea;
-        }
-        if (row.name.startsWith("Chamomile Tea")) {
-            time = times.Eaten.Chamomile;
-        }
-        if (row.name.startsWith("Kombucha")) {
-            time = times.Eaten.Kombucha;
+        if (useTimesFromNotes) {
+            // Get other times based on group name
+            time = times.Eaten[row.meal];
+            // Set specific times
+            if (row.name.startsWith("Coffee")) {
+                time = times.Eaten.Coffee;
+            }
+            if (row.name.startsWith("Jasmine Tea")) {
+                time = times.Eaten.Tea;
+            }
+            if (row.name.startsWith("Chamomile Tea")) {
+                time = times.Eaten.Chamomile;
+            }
+            if (row.name.startsWith("Kombucha")) {
+                time = times.Eaten.Kombucha;
+            }
         }
         let food = new FoodEaten(row.name, row.value + row.unit, time, fermented);
         foods.push(food);
