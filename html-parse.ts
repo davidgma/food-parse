@@ -107,7 +107,7 @@ mappings.set("Chicken Breast, Skin Removed Before Cooking", "Chicken");
 mappings.set("Egg, Whole, Cooked, Hard-Boiled", "Egg");
 mappings.set("Mollusks, scallop, mixed species", "Scallops");
 mappings.set("Oatmeal, Regular or Quick", "Oats");
-mappings.set("Peas, Green, Split, Mature Seeds", "Split peas");
+mappings.set("Peas, Green, Split, Mature Seeds", "Split peas - green");
 mappings.set("Nuts, Pine Nuts", "Pine nuts");
 mappings.set("Chickpeas, Garbanzo Beans, Bengal Gram, Mature Seeds", "Chickpeas");
 mappings.set("Beans, Black, Mature Seeds", "Black beans");
@@ -141,6 +141,68 @@ mappings.set("Squash, Winter, Butternut, Cooked without Salt", "Butternut squash
 mappings.set("Potato, Flesh", "Potato");
 mappings.set("Currants, Fresh, Black", "Currants");
 mappings.set("Eden, Seaweed, Kombu, Wild", "Kombu");
+mappings.set("Celeriac, Celery Root", "Celeriac");
+mappings.set("Spices, tarragon", "Tarragon");
+mappings.set("Goat Cheese, Soft", "Goats cheese");
+mappings.set("Seeds, pumpkin and squash seeds, whole, roasted, with salt added", "Squash seeds");
+mappings.set("Green Onions, Tops Only", "Spring Onions");
+mappings.set("Bread, Whole-Wheat, Commercially Prepared", "Wholemeal bread");
+mappings.set("Liquorice Powder", "Liquorice");
+mappings.set("Miso", "Miso paste");
+mappings.set("Grapefruit, Raw, Pink or Red", "Grapefruit");
+mappings.set("Chives, Dried or Dehydrated", "Chives, Dried");
+mappings.set("Pistachio Nuts, Roasted, Unsalted", "Pistachio Nuts");
+mappings.set("Pine Nuts, Pignolias", "Pine Nuts");
+mappings.set("Avocados, Raw, All Commercial Varieties", "Avocado");
+mappings.set("Chinese Cabbage, Pak-Choi", "Pak Choi");
+mappings.set("White All-Purpose Flour, Unenriched", "White flour");
+mappings.set("Peanut Butter, Salted", "Peanut Butter");
+mappings.set("Squash, Winter, Butternut", "Butternut Squash");
+mappings.set("Cowpeas (blackeyes), immature seeds, cooked, boiled, drained, with salt", "Blackeyed peas");
+mappings.set("Barley, Pearled", "Pearl barley");
+mappings.set("Seaweed, Dulse, Laver, Nori", "Dried seaweed");
+mappings.set("Cowpeas, Cooked from Dried", "Blackeyed peas");
+mappings.set("Brown Rice, Uncooked", "Brown rice");
+mappings.set("Milk, Whole, 3.25% Milkfat, without Added Vitamin A and Vitamin D", "Milk");
+mappings.set("Millet, Cooked with Salt", "Millet");
+mappings.set("Oranges, Raw, Navels", "Oranges - normal");
+mappings.set("Lentils, Boiled", "Lentils - green");
+mappings.set("Lentils - Puy, boiled", "Lentils - Puy");
+mappings.set("Beans, black turtle, mature seeds", "Black beans");
+mappings.set("Brazil Nuts, Salted", "Brazil Nuts");
+mappings.set("Wheat, Kamut khorasan, uncooked", "Khorasan");
+mappings.set("Brazilnuts, Unsalted", "Brazil Nuts");
+mappings.set("Cucumber, Raw, With Peel", "Cucumber");
+mappings.set("beans, white, mature seeds", "White beans");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
+mappings.set("", "");
 mappings.set("", "");
 mappings.set("", "");
 mappings.set("", "");
@@ -166,6 +228,7 @@ endings.push(", ground, raw");
 endings.push(", fresh, raw");
 endings.push(", dried, ground");
 endings.push(", raw");
+endings.push(" raw");
 endings.push(", cooked");
 endings.push(", dried");
 endings.push(", fresh");
@@ -322,6 +385,7 @@ for (let row of cronData) {
         && row.name !== "Jasmine Tea"
         && row.name !== "Chamomile Tea"
         && row.name !== "Kombucha"
+        && row.name !== "Tap Water"
     ) {
         totalGEaten += row.value;
     }
@@ -342,8 +406,10 @@ for (let row of cronData) {
         // Check whether the food was listed in times.json as fermented
         let fermented = "";
         let fermentedFoods: Array<string> = times.Fermented;
-        if (fermentedFoods.includes(row.name)) {
-            fermented = "F ";
+        if (fermentedFoods !== undefined) {
+            if (fermentedFoods.includes(row.name)) {
+                fermented = "F ";
+            }
         }
 
         // Get the time actually eaten
